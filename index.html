@@ -4,179 +4,154 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>🌸 Cute Test 🌸</title>
-
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Comic Sans MS',cursive,sans-serif;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;}
 body{
-height:100vh;
-overflow:hidden;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(-45deg,#ffd6e7,#ffc0cb,#ffe5ec,#ffd1dc);
-background-size:400% 400%;
-animation:bg 10s ease infinite;
+  min-height:100vh;font-family:'Nunito',sans-serif;
+  display:flex;justify-content:center;align-items:center;
+  background:linear-gradient(135deg,#ffe0ec 0%,#ffc2d4 40%,#ffb3c6 70%,#ffd6e7 100%);
+  overflow:hidden;position:relative;
 }
-
-@keyframes bg{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-}
-
+.deco{position:fixed;font-size:90px;opacity:.06;pointer-events:none;user-select:none;animation:decoFloat ease-in-out infinite;}
+@keyframes decoFloat{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-14px) rotate(5deg)}}
 .card{
-background:rgba(255,255,255,.9);
-padding:35px;
-border-radius:30px;
-box-shadow:0 10px 30px rgba(255,105,180,.3);
-text-align:center;
-position:relative;
-z-index:5;
-width:320px;
+  background:rgba(255,255,255,.86);backdrop-filter:blur(16px);
+  padding:48px 52px 44px;border-radius:36px;text-align:center;
+  box-shadow:0 20px 70px rgba(255,80,140,.2),0 2px 16px rgba(255,80,140,.1);
+  border:2px solid rgba(255,190,215,.5);
+  position:relative;z-index:10;max-width:400px;width:88%;
+  animation:cardFloat 4s ease-in-out infinite;
 }
-
-h1{
-color:#ff4d88;
-margin-bottom:20px;
-}
-
-p{
-color:#ff5c8d;
-font-size:20px;
-}
-
-button{
-padding:12px 28px;
-margin:10px;
-font-size:18px;
-border:none;
-border-radius:50px;
-cursor:pointer;
-transition:.2s;
-}
-
+@keyframes cardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.mascot{font-size:78px;display:block;margin-bottom:10px;animation:mascotWiggle 2s ease-in-out infinite;}
+@keyframes mascotWiggle{0%,100%{transform:rotate(-6deg) scale(1)}50%{transform:rotate(6deg) scale(1.1)}}
+h1{font-family:'Pacifico',cursive;font-size:22px;color:#d63a72;margin-bottom:6px;line-height:1.4;}
+.sub{font-size:13px;color:#e8789c;font-weight:700;margin-bottom:26px;letter-spacing:.3px;}
+.btn-wrap{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
 #yes{
-background:#ff5c8d;
-color:white;
+  padding:14px 38px;font-size:17px;font-weight:800;font-family:'Nunito',sans-serif;
+  border:none;border-radius:50px;cursor:pointer;
+  background:linear-gradient(135deg,#ff4f81,#ff87b2);color:white;
+  box-shadow:0 6px 22px rgba(255,79,129,.4);transition:transform .18s,box-shadow .18s;
 }
-
-#yes:hover{
-transform:scale(1.08);
-}
-
+#yes:hover{transform:scale(1.1);box-shadow:0 10px 30px rgba(255,79,129,.5);}
+#yes:active{transform:scale(.96);}
 #no{
-background:white;
-color:#ff5c8d;
-position:absolute;
-border:2px solid #ff8fb1;
+  padding:14px 28px;font-size:16px;font-weight:700;font-family:'Nunito',sans-serif;
+  border:2px solid #ffb3cc;border-radius:50px;cursor:pointer;
+  background:white;color:#e8789c;position:absolute;transition:all .12s;
 }
-
-.heart{
-position:fixed;
-bottom:-30px;
-font-size:25px;
-animation:float linear forwards;
-pointer-events:none;
+#no:hover{border-color:#ff7da8;color:#d63a72;}
+#page2{display:none;animation:popIn .55s cubic-bezier(.34,1.56,.64,1);}
+@keyframes popIn{from{transform:scale(.3);opacity:0}to{transform:scale(1);opacity:1}}
+.result-mascot{font-size:80px;display:block;margin-bottom:10px;animation:spinIn .6s ease-out;}
+@keyframes spinIn{from{transform:rotate(-30deg) scale(.5)}to{transform:rotate(0) scale(1)}}
+.result-title{font-family:'Pacifico',cursive;font-size:26px;color:#d63a72;margin-bottom:10px;}
+.result-sub{font-size:15px;color:#e8789c;font-weight:700;line-height:1.7;}
+.hearts-row{font-size:22px;letter-spacing:5px;margin-bottom:14px;}
+.petal{position:fixed;pointer-events:none;z-index:99;font-size:20px;animation:petalFall linear forwards;}
+@keyframes petalFall{
+  0%{transform:translateY(-20px) rotate(0deg) scale(1);opacity:1;}
+  100%{transform:translateY(110vh) rotate(540deg) scale(.6);opacity:0;}
 }
-
-@keyframes float{
-0%{
-transform:translateY(0) rotate(0deg);
-opacity:1;
-}
-100%{
-transform:translateY(-110vh) rotate(360deg);
-opacity:0;
-}
-}
-
-#page2{
-display:none;
-animation:fade .8s;
-}
-
-@keyframes fade{
-from{
-opacity:0;
-transform:scale(.8);
-}
-to{
-opacity:1;
-transform:scale(1);
-}
+.sparkle{position:fixed;pointer-events:none;z-index:100;width:8px;height:8px;border-radius:50%;animation:sparklePop ease-out forwards;}
+@keyframes sparklePop{
+  0%{transform:scale(0);opacity:1;}
+  60%{transform:scale(1.4);opacity:.8;}
+  100%{transform:scale(0);opacity:0;}
 }
 </style>
-
 </head>
-
 <body>
 
+<div class="deco" style="top:4%;left:4%;animation-duration:5s;">🌸</div>
+<div class="deco" style="bottom:6%;right:5%;animation-duration:6.5s;font-size:110px;">✨</div>
+<div class="deco" style="top:55%;left:3%;animation-duration:4.5s;font-size:70px;">💮</div>
+<div class="deco" style="top:8%;right:6%;animation-duration:7s;font-size:80px;">🌷</div>
+
 <div class="card">
+  <div id="page1">
+    <span class="mascot">🌸</span>
+    <h1>Are you cute? 💕</h1>
+    <p class="sub">Think carefully… the flowers are watching 👀</p>
+    <div class="btn-wrap">
+      <button id="yes">Yes, I am!! 💖</button>
+      <button id="no">No 🙈</button>
+    </div>
+  </div>
 
-<div id="page1">
-<h1>🌸 Are you cute? 🌸</h1>
-
-<button id="yes">Yes 💕</button>
-<button id="no">No 🙈</button>
-</div>
-
-<div id="page2">
-<h1>🥺💖</h1>
-<p>I knew it!!</p>
-<p><b>You really are cute!! 🌸💕✨</b></p>
-</div>
-
+  <div id="page2">
+    <span class="result-mascot">🥺💐</span>
+    <div class="hearts-row">💕💕💕💕💕</div>
+    <p class="result-title">I KNEW it!! 🌸</p>
+    <p class="result-sub">The flowers have confirmed it —<br>you are officially <b>absolutely adorable!!</b> ✨🌷💕</p>
+  </div>
 </div>
 
 <script>
+const no = document.getElementById('no');
+let tries = 0;
+const taunts = ['Nope!! 🙈','Nuh-uh 🌸','Run!! 🌷','Nice try 💨','Catch me 🏃💕'];
 
-const no=document.getElementById("no");
-
-function move(){
-
-const x=Math.random()*(window.innerWidth-120);
-const y=Math.random()*(window.innerHeight-70);
-
-no.style.left=x+"px";
-no.style.top=y+"px";
+function moveNo() {
+  tries++;
+  const pad = 70;
+  const x = pad + Math.random() * (window.innerWidth - pad * 2 - 130);
+  const y = pad + Math.random() * (window.innerHeight - pad * 2 - 60);
+  no.style.left = x + 'px';
+  no.style.top = y + 'px';
+  const scale = Math.max(0.55, 1 - tries * 0.07);
+  no.style.transform = `scale(${scale})`;
+  no.style.opacity = Math.max(0.25, 1 - tries * 0.09);
+  if (tries <= taunts.length) no.textContent = taunts[tries - 1];
 }
 
-no.addEventListener("mouseover",move);
+no.addEventListener('mouseover', moveNo);
+no.addEventListener('touchstart', e => { e.preventDefault(); moveNo(); });
 
-no.addEventListener("touchstart",e=>{
-e.preventDefault();
-move();
-});
-
-document.getElementById("yes").onclick=()=>{
-
-document.getElementById("page1").style.display="none";
-document.getElementById("page2").style.display="block";
-
-setInterval(()=>{
-let h=document.createElement("div");
-
-h.className="heart";
-h.innerHTML=Math.random()>0.5?"💖":"🌸";
-
-h.style.left=Math.random()*100+"vw";
-h.style.animationDuration=(3+Math.random()*4)+"s";
-
-document.body.appendChild(h);
-
-setTimeout(()=>h.remove(),7000);
-
-},150);
-
+document.getElementById('yes').onclick = () => {
+  document.getElementById('page1').style.display = 'none';
+  document.getElementById('page2').style.display = 'block';
+  startPetals();
+  burstSparkles();
 };
 
-</script>
+function startPetals() {
+  const icons = ['🌸','💖','🌷','✨','💕','🌼','💮','🩷'];
+  let count = 0;
+  const iv = setInterval(() => {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.textContent = icons[Math.floor(Math.random() * icons.length)];
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.top = '-30px';
+    p.style.fontSize = (13 + Math.random() * 16) + 'px';
+    p.style.animationDuration = (3 + Math.random() * 5) + 's';
+    p.style.animationDelay = (Math.random() * .5) + 's';
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), 9000);
+    count++;
+    if (count > 200) clearInterval(iv);
+  }, 120);
+}
 
+function burstSparkles() {
+  const colors = ['#ff4f81','#ffb3cc','#ff87b2','#ffd1e8','#fff0f5','#ff6b9d','#ffcce0'];
+  for (let i = 0; i < 50; i++) {
+    setTimeout(() => {
+      const s = document.createElement('div');
+      s.className = 'sparkle';
+      s.style.background = colors[Math.floor(Math.random() * colors.length)];
+      s.style.left = (20 + Math.random() * 60) + 'vw';
+      s.style.top = (20 + Math.random() * 60) + 'vh';
+      s.style.animationDuration = (.4 + Math.random() * .8) + 's';
+      s.style.width = s.style.height = (5 + Math.random() * 10) + 'px';
+      document.body.appendChild(s);
+      setTimeout(() => s.remove(), 1500);
+    }, i * 30);
+  }
+}
+</script>
 </body>
 </html>
