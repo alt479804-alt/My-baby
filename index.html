@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Question</title>
+<style>
+body{
+  font-family:Arial;
+  text-align:center;
+  margin-top:100px;
+}
+button{
+  padding:10px 25px;
+  font-size:18px;
+  margin:10px;
+}
+#no{
+  position:absolute;
+}
+</style>
+</head>
+<body>
+
+<h1>Will you be my friend?</h1>
+
+<button onclick="alert('Yay! 😊')">Yes</button>
+<button id="no">No</button>
+
+<script>
+const no=document.getElementById("no");
+
+no.addEventListener("mouseover",()=>{
+  no.style.left=Math.random()*300+"px";
+  no.style.top=Math.random()*300+"px";
+});
+
+no.onclick=()=>{
+  alert("Too late! 😆");
+};
+</script>
+
+</body>
+</html>
