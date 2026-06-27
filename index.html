@@ -16,46 +16,58 @@ body{
 .deco{position:fixed;font-size:90px;opacity:.06;pointer-events:none;user-select:none;animation:decoFloat ease-in-out infinite;}
 @keyframes decoFloat{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-14px) rotate(5deg)}}
 .card{
-  background:rgba(255,255,255,.86);backdrop-filter:blur(16px);
-  padding:48px 52px 44px;border-radius:36px;text-align:center;
+  background:rgba(255,255,255,.88);backdrop-filter:blur(16px);
+  padding:44px 40px 40px;border-radius:36px;text-align:center;
   box-shadow:0 20px 70px rgba(255,80,140,.2),0 2px 16px rgba(255,80,140,.1);
   border:2px solid rgba(255,190,215,.5);
-  position:relative;z-index:10;max-width:400px;width:88%;
+  position:relative;z-index:10;max-width:360px;width:88%;
   animation:cardFloat 4s ease-in-out infinite;
 }
 @keyframes cardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-.mascot{font-size:78px;display:block;margin-bottom:10px;animation:mascotWiggle 2s ease-in-out infinite;}
+.mascot{font-size:72px;display:block;margin-bottom:10px;animation:mascotWiggle 2s ease-in-out infinite;}
 @keyframes mascotWiggle{0%,100%{transform:rotate(-6deg) scale(1)}50%{transform:rotate(6deg) scale(1.1)}}
-h1{font-family:'Pacifico',cursive;font-size:22px;color:#d63a72;margin-bottom:6px;line-height:1.4;}
-.sub{font-size:13px;color:#e8789c;font-weight:700;margin-bottom:26px;letter-spacing:.3px;}
-.btn-wrap{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+h1{font-family:'Pacifico',cursive;font-size:21px;color:#d63a72;margin-bottom:6px;line-height:1.4;}
+.sub{font-size:13px;color:#e8789c;font-weight:700;margin-bottom:28px;letter-spacing:.3px;}
+.btn-wrap{
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+  position:relative;
+  min-height:130px;
+  justify-content:flex-start;
+  padding-top:4px;
+}
 #yes{
   padding:14px 38px;font-size:17px;font-weight:800;font-family:'Nunito',sans-serif;
-  border:none;border-radius:50px;cursor:pointer;
+  border:none;border-radius:50px;cursor:pointer;width:100%;
   background:linear-gradient(135deg,#ff4f81,#ff87b2);color:white;
   box-shadow:0 6px 22px rgba(255,79,129,.4);transition:transform .18s,box-shadow .18s;
+  position:relative;z-index:2;
 }
-#yes:hover{transform:scale(1.1);box-shadow:0 10px 30px rgba(255,79,129,.5);}
+#yes:hover{transform:scale(1.06);box-shadow:0 10px 30px rgba(255,79,129,.5);}
 #yes:active{transform:scale(.96);}
 #no{
-  padding:14px 28px;font-size:16px;font-weight:700;font-family:'Nunito',sans-serif;
+  padding:13px 28px;font-size:15px;font-weight:700;font-family:'Nunito',sans-serif;
   border:2px solid #ffb3cc;border-radius:50px;cursor:pointer;
-  background:white;color:#e8789c;position:absolute;transition:all .12s;
+  background:white;color:#e8789c;
+  position:absolute;
+  top:60px; left:50%;
+  transform:translateX(-50%);
+  transition:top .1s,left .1s,transform .1s,opacity .2s,font-size .2s,padding .2s;
+  white-space:nowrap;
+  z-index:1;
 }
-#no:hover{border-color:#ff7da8;color:#d63a72;}
 #page2{display:none;animation:popIn .55s cubic-bezier(.34,1.56,.64,1);}
 @keyframes popIn{from{transform:scale(.3);opacity:0}to{transform:scale(1);opacity:1}}
-.result-mascot{font-size:80px;display:block;margin-bottom:10px;animation:spinIn .6s ease-out;}
+.result-mascot{font-size:76px;display:block;margin-bottom:10px;animation:spinIn .6s ease-out;}
 @keyframes spinIn{from{transform:rotate(-30deg) scale(.5)}to{transform:rotate(0) scale(1)}}
-.result-title{font-family:'Pacifico',cursive;font-size:26px;color:#d63a72;margin-bottom:10px;}
-.result-sub{font-size:15px;color:#e8789c;font-weight:700;line-height:1.7;}
-.hearts-row{font-size:22px;letter-spacing:5px;margin-bottom:14px;}
-.petal{position:fixed;pointer-events:none;z-index:99;font-size:20px;animation:petalFall linear forwards;}
+.result-title{font-family:'Pacifico',cursive;font-size:24px;color:#d63a72;margin-bottom:10px;}
+.result-sub{font-size:14px;color:#e8789c;font-weight:700;line-height:1.7;}
+.hearts-row{font-size:20px;letter-spacing:5px;margin-bottom:14px;}
+.petal{position:fixed;pointer-events:none;z-index:99;animation:petalFall linear forwards;}
 @keyframes petalFall{
   0%{transform:translateY(-20px) rotate(0deg) scale(1);opacity:1;}
   100%{transform:translateY(110vh) rotate(540deg) scale(.6);opacity:0;}
 }
-.sparkle{position:fixed;pointer-events:none;z-index:100;width:8px;height:8px;border-radius:50%;animation:sparklePop ease-out forwards;}
+.sparkle{position:fixed;pointer-events:none;z-index:100;border-radius:50%;animation:sparklePop ease-out forwards;}
 @keyframes sparklePop{
   0%{transform:scale(0);opacity:1;}
   60%{transform:scale(1.4);opacity:.8;}
@@ -70,12 +82,12 @@ h1{font-family:'Pacifico',cursive;font-size:22px;color:#d63a72;margin-bottom:6px
 <div class="deco" style="top:55%;left:3%;animation-duration:4.5s;font-size:70px;">💮</div>
 <div class="deco" style="top:8%;right:6%;animation-duration:7s;font-size:80px;">🌷</div>
 
-<div class="card">
+<div class="card" id="card">
   <div id="page1">
     <span class="mascot">🌸</span>
     <h1>Are you cute? 💕</h1>
     <p class="sub">Think carefully… the flowers are watching 👀</p>
-    <div class="btn-wrap">
+    <div class="btn-wrap" id="btnWrap">
       <button id="yes">Yes, I am!! 💖</button>
       <button id="no">No 🙈</button>
     </div>
@@ -91,20 +103,38 @@ h1{font-family:'Pacifico',cursive;font-size:22px;color:#d63a72;margin-bottom:6px
 
 <script>
 const no = document.getElementById('no');
+const btnWrap = document.getElementById('btnWrap');
 let tries = 0;
-const taunts = ['Nope!! 🙈','Nuh-uh 🌸','Run!! 🌷','Nice try 💨','Catch me 🏃💕'];
+const taunts = ['Nope!! 🙈','Nuh-uh 🌸','Run!! 🌷','Nice try 💨','Catch me 🏃','Too slow 💅','Bye bye 👋','...🌸'];
+const maxTries = 14;
 
 function moveNo() {
   tries++;
-  const pad = 70;
-  const x = pad + Math.random() * (window.innerWidth - pad * 2 - 130);
-  const y = pad + Math.random() * (window.innerHeight - pad * 2 - 60);
-  no.style.left = x + 'px';
-  no.style.top = y + 'px';
-  const scale = Math.max(0.55, 1 - tries * 0.07);
-  no.style.transform = `scale(${scale})`;
-  no.style.opacity = Math.max(0.25, 1 - tries * 0.09);
-  if (tries <= taunts.length) no.textContent = taunts[tries - 1];
+
+  const wrap = btnWrap.getBoundingClientRect();
+  const noW = no.offsetWidth;
+  const noH = no.offsetHeight;
+
+  const maxX = wrap.width - noW;
+  const maxY = wrap.height - noH;
+
+  const rx = Math.random() * Math.max(0, maxX);
+  const ry = Math.max(60, Math.random() * Math.max(60, maxY));
+
+  no.style.left = rx + 'px';
+  no.style.top = ry + 'px';
+  no.style.transform = 'translateX(0)';
+
+  const opacity = Math.max(0.08, 1 - tries * 0.07);
+  const fontSize = Math.max(7, 15 - tries * 0.8);
+  const pad = Math.max(2, 13 - tries * 0.9);
+
+  no.style.fontSize = fontSize + 'px';
+  no.style.padding = pad + 'px ' + (pad * 2) + 'px';
+  no.style.opacity = opacity;
+  no.style.pointerEvents = tries >= maxTries ? 'none' : 'auto';
+
+  if (tries - 1 < taunts.length) no.textContent = taunts[tries - 1];
 }
 
 no.addEventListener('mouseover', moveNo);
@@ -146,7 +176,8 @@ function burstSparkles() {
       s.style.left = (20 + Math.random() * 60) + 'vw';
       s.style.top = (20 + Math.random() * 60) + 'vh';
       s.style.animationDuration = (.4 + Math.random() * .8) + 's';
-      s.style.width = s.style.height = (5 + Math.random() * 10) + 'px';
+      const size = (5 + Math.random() * 10) + 'px';
+      s.style.width = s.style.height = size;
       document.body.appendChild(s);
       setTimeout(() => s.remove(), 1500);
     }, i * 30);
