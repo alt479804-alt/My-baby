@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🌸 Cute Test 🌸</title>
+<title>🌸 A Quiz 🌸</title>
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -24,55 +24,66 @@ body{
   animation:cardFloat 4s ease-in-out infinite;
 }
 @keyframes cardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-.mascot{font-size:72px;display:block;margin-bottom:10px;animation:mascotWiggle 2s ease-in-out infinite;}
+.mascot{font-size:68px;display:block;margin-bottom:10px;animation:mascotWiggle 2s ease-in-out infinite;}
 @keyframes mascotWiggle{0%,100%{transform:rotate(-6deg) scale(1)}50%{transform:rotate(6deg) scale(1.1)}}
-h1{font-family:'Pacifico',cursive;font-size:21px;color:#d63a72;margin-bottom:6px;line-height:1.4;}
-.sub{font-size:13px;color:#e8789c;font-weight:700;margin-bottom:28px;letter-spacing:.3px;}
-.btn-wrap{
-  display:flex;flex-direction:column;align-items:center;gap:14px;
-  position:relative;
-  min-height:130px;
-  justify-content:flex-start;
-  padding-top:4px;
-}
-#yes{
-  padding:14px 38px;font-size:17px;font-weight:800;font-family:'Nunito',sans-serif;
-  border:none;border-radius:50px;cursor:pointer;width:100%;
-  background:linear-gradient(135deg,#ff4f81,#ff87b2);color:white;
-  box-shadow:0 6px 22px rgba(255,79,129,.4);transition:transform .18s,box-shadow .18s;
-  position:relative;z-index:2;
-}
-#yes:hover{transform:scale(1.06);box-shadow:0 10px 30px rgba(255,79,129,.5);}
-#yes:active{transform:scale(.96);}
-#no{
-  padding:13px 28px;font-size:15px;font-weight:700;font-family:'Nunito',sans-serif;
-  border:2px solid #ffb3cc;border-radius:50px;cursor:pointer;
-  background:white;color:#e8789c;
-  position:absolute;
-  top:60px; left:50%;
-  transform:translateX(-50%);
-  transition:top .1s,left .1s,transform .1s,opacity .2s,font-size .2s,padding .2s;
-  white-space:nowrap;
-  z-index:1;
-}
-#page2{display:none;animation:popIn .55s cubic-bezier(.34,1.56,.64,1);}
-@keyframes popIn{from{transform:scale(.3);opacity:0}to{transform:scale(1);opacity:1}}
-.result-mascot{font-size:76px;display:block;margin-bottom:10px;animation:spinIn .6s ease-out;}
+.page{display:none;}
+.page.active{display:block;}
+h1{font-family:'Pacifico',cursive;font-size:19px;color:#d63a72;margin-bottom:6px;line-height:1.5;}
+.sub{font-size:12px;color:#e8789c;font-weight:700;margin-bottom:24px;letter-spacing:.3px;}
+.result-mascot{font-size:72px;display:block;margin-bottom:10px;animation:spinIn .6s ease-out;}
 @keyframes spinIn{from{transform:rotate(-30deg) scale(.5)}to{transform:rotate(0) scale(1)}}
-.result-title{font-family:'Pacifico',cursive;font-size:24px;color:#d63a72;margin-bottom:10px;}
-.result-sub{font-size:14px;color:#e8789c;font-weight:700;line-height:1.7;}
-.hearts-row{font-size:20px;letter-spacing:5px;margin-bottom:14px;}
+.result-title{font-family:'Pacifico',cursive;font-size:20px;color:#d63a72;margin-bottom:18px;line-height:1.5;}
+.next-btn{
+  padding:13px 34px;font-size:15px;font-weight:800;font-family:'Nunito',sans-serif;
+  border:none;border-radius:50px;cursor:pointer;
+  background:linear-gradient(135deg,#ff4f81,#ff87b2);color:white;
+  box-shadow:0 6px 22px rgba(255,79,129,.4);transition:transform .18s;
+  margin-top:6px;
+}
+.next-btn:hover{transform:scale(1.07);}
+.next-btn:active{transform:scale(.96);}
+.made-by{font-size:11px;color:#e8789c99;margin-top:14px;font-weight:700;}
+.btn-wrap{
+  position:relative;min-height:130px;
+  display:flex;flex-direction:column;align-items:center;
+  padding-top:4px;gap:12px;
+}
+.fixed-btn{
+  padding:13px 38px;font-size:16px;font-weight:800;font-family:'Nunito',sans-serif;
+  border:none;border-radius:50px;cursor:pointer;width:100%;
+  transition:transform .18s,box-shadow .18s;
+}
+.yes-btn{
+  background:linear-gradient(135deg,#ff4f81,#ff87b2);color:white;
+  box-shadow:0 6px 22px rgba(255,79,129,.4);position:relative;z-index:2;
+}
+.yes-btn:hover{transform:scale(1.06);}
+.yes-btn:active{transform:scale(.96);}
+.run-btn{
+  border:2px solid #ffb3cc;background:white;color:#e8789c;
+  position:absolute;top:62px;left:50%;transform:translateX(-50%);
+  white-space:nowrap;z-index:1;
+  transition:top .1s,left .1s,opacity .2s,font-size .2s,padding .2s,transform .1s;
+}
+.two-btn-wrap{
+  display:flex;gap:14px;justify-content:center;margin-top:6px;flex-wrap:wrap;
+}
+.flip-btn{
+  padding:13px 28px;font-size:16px;font-weight:800;font-family:'Nunito',sans-serif;
+  border-radius:50px;cursor:pointer;
+  border:2px solid #ffb3cc;background:white;color:#e8789c;
+  transition:all .25s;
+}
+.flip-btn.flipped{
+  background:linear-gradient(135deg,#ff4f81,#ff87b2);color:white;border-color:transparent;
+  box-shadow:0 6px 22px rgba(255,79,129,.4);
+}
 .petal{position:fixed;pointer-events:none;z-index:99;animation:petalFall linear forwards;}
-@keyframes petalFall{
-  0%{transform:translateY(-20px) rotate(0deg) scale(1);opacity:1;}
-  100%{transform:translateY(110vh) rotate(540deg) scale(.6);opacity:0;}
-}
+@keyframes petalFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1;}100%{transform:translateY(110vh) rotate(540deg);opacity:0;}}
 .sparkle{position:fixed;pointer-events:none;z-index:100;border-radius:50%;animation:sparklePop ease-out forwards;}
-@keyframes sparklePop{
-  0%{transform:scale(0);opacity:1;}
-  60%{transform:scale(1.4);opacity:.8;}
-  100%{transform:scale(0);opacity:0;}
-}
+@keyframes sparklePop{0%{transform:scale(0);opacity:1;}60%{transform:scale(1.4);opacity:.8;}100%{transform:scale(0);opacity:0;}}
+.fade-in{animation:fadeIn .5s ease;}
+@keyframes fadeIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
 </style>
 </head>
 <body>
@@ -82,70 +93,163 @@ h1{font-family:'Pacifico',cursive;font-size:21px;color:#d63a72;margin-bottom:6px
 <div class="deco" style="top:55%;left:3%;animation-duration:4.5s;font-size:70px;">💮</div>
 <div class="deco" style="top:8%;right:6%;animation-duration:7s;font-size:80px;">🌷</div>
 
-<div class="card" id="card">
-  <div id="page1">
-    <span class="mascot">🌸</span>
-    <h1>Are you cute? 💕</h1>
-    <p class="sub">Think carefully… the flowers are watching 👀</p>
-    <div class="btn-wrap" id="btnWrap">
-      <button id="yes">Yes, I am!! 💖</button>
-      <button id="no">No 🙈</button>
+<div class="card">
+
+  <!-- Q1: Is Homura/Sarah short? -->
+  <div class="page active" id="q1">
+    <span class="mascot">📏</span>
+    <h1>Is Homura/Sarah short? 🌸</h1>
+    <p class="sub">Choose wisely… 👀</p>
+    <div class="btn-wrap" id="q1wrap">
+      <button class="fixed-btn yes-btn" onclick="showResult('r1')">Yes 💕</button>
+      <button class="run-btn fixed-btn" id="q1no">No 🙈</button>
     </div>
   </div>
 
-  <div id="page2">
-    <span class="result-mascot">🥺💐</span>
-    <div class="hearts-row">💕💕💕💕💕</div>
-    <p class="result-title">I KNEW it!! 🌸</p>
-    <p class="result-sub">The flowers have confirmed it —<br>you are officially <b>absolutely adorable!!</b> ✨🌷💕</p>
+  <!-- R1: after Yes on Q1 -->
+  <div class="page" id="r1">
+    <span class="result-mascot">😏🌸</span>
+    <p class="result-title">I always knew you were so short 💀💕</p>
+    <button class="next-btn" onclick="showPage('q2')">Next question →</button>
+    <p class="made-by">- Made by Jacob</p>
   </div>
+
+  <!-- Q2: Is Homura/Sarah brain good? -->
+  <div class="page" id="q2">
+    <span class="mascot">🧠</span>
+    <h1>Is Homura/Sarah's brain good? 💭</h1>
+    <p class="sub">Think carefully… 🤔</p>
+    <div class="btn-wrap" id="q2wrap">
+      <button class="fixed-btn yes-btn" id="q2yes">Yes 💖</button>
+      <button class="run-btn fixed-btn" id="q2no" onclick="showResult('r2')">No 💔</button>
+    </div>
+  </div>
+
+  <!-- R2: after No on Q2 -->
+  <div class="page" id="r2">
+    <span class="result-mascot">😌💜</span>
+    <p class="result-title">I also always knew that &lt;3</p>
+    <button class="next-btn" onclick="showPage('q3')">Next question →</button>
+    <p class="made-by">- Made by Jacob</p>
+  </div>
+
+  <!-- Q3: Is Homura/Sarah cute? -->
+  <div class="page" id="q3">
+    <span class="mascot">🌸</span>
+    <h1>Is Homura/Sarah cute? 💕</h1>
+    <p class="sub">Both options are totally fair 😇</p>
+    <div class="two-btn-wrap">
+      <button class="flip-btn" id="flipA" onclick="flipBtn('A')">No 🙈</button>
+      <button class="flip-btn" id="flipB" onclick="flipBtn('B')">No 🙈</button>
+    </div>
+    <p class="made-by" style="margin-top:20px;">- Made by Jacob</p>
+  </div>
+
+  <!-- Final page -->
+  <div class="page" id="final">
+    <span class="result-mascot">😈🌸</span>
+    <p class="result-title">I guess you fell for it 💀💕</p>
+    <p style="font-size:13px;color:#e8789c;font-weight:700;margin-top:-8px;margin-bottom:10px;">There was never a No option 🌷✨</p>
+    <p class="made-by">- Made by Jacob</p>
+  </div>
+
 </div>
 
 <script>
-const no = document.getElementById('no');
-const btnWrap = document.getElementById('btnWrap');
-let tries = 0;
-const taunts = ['Nope!! 🙈','Nuh-uh 🌸','Run!! 🌷','Nice try 💨','Catch me 🏃','Too slow 💅','Bye bye 👋','...🌸'];
-const maxTries = 14;
-
-function moveNo() {
-  tries++;
-
-  const wrap = btnWrap.getBoundingClientRect();
-  const noW = no.offsetWidth;
-  const noH = no.offsetHeight;
-
-  const maxX = wrap.width - noW;
-  const maxY = wrap.height - noH;
-
-  const rx = Math.random() * Math.max(0, maxX);
-  const ry = Math.max(60, Math.random() * Math.max(60, maxY));
-
-  no.style.left = rx + 'px';
-  no.style.top = ry + 'px';
-  no.style.transform = 'translateX(0)';
-
-  const opacity = Math.max(0.08, 1 - tries * 0.07);
-  const fontSize = Math.max(7, 15 - tries * 0.8);
-  const pad = Math.max(2, 13 - tries * 0.9);
-
-  no.style.fontSize = fontSize + 'px';
-  no.style.padding = pad + 'px ' + (pad * 2) + 'px';
-  no.style.opacity = opacity;
-  no.style.pointerEvents = tries >= maxTries ? 'none' : 'auto';
-
-  if (tries - 1 < taunts.length) no.textContent = taunts[tries - 1];
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const el = document.getElementById(id);
+  el.classList.add('active');
+  el.classList.add('fade-in');
+  setTimeout(() => el.classList.remove('fade-in'), 600);
+}
+function showResult(id) {
+  showPage(id);
+  burstSparkles();
+  startPetals();
 }
 
-no.addEventListener('mouseover', moveNo);
-no.addEventListener('touchstart', e => { e.preventDefault(); moveNo(); });
+// Q1 No button runs away
+const q1no = document.getElementById('q1no');
+const q1wrap = document.getElementById('q1wrap');
+let q1tries = 0;
+const taunts1 = ['Nope!! 🙈','Nuh-uh 🌸','Run!! 🌷','Nice try 💨','Catch me 🏃','Too slow 💅','Bye bye 👋','...🌸'];
+function moveQ1No() {
+  q1tries++;
+  const wrap = q1wrap.getBoundingClientRect();
+  const noW = q1no.offsetWidth || 100;
+  const noH = q1no.offsetHeight || 44;
+  const rx = Math.random() * Math.max(0, wrap.width - noW);
+  const ry = Math.max(62, Math.random() * Math.max(62, wrap.height - noH));
+  q1no.style.left = rx + 'px';
+  q1no.style.top = ry + 'px';
+  q1no.style.transform = 'translateX(0)';
+  const fs = Math.max(6, 15 - q1tries * 0.85);
+  const pd = Math.max(2, 13 - q1tries * 0.9);
+  q1no.style.fontSize = fs + 'px';
+  q1no.style.padding = pd + 'px ' + (pd*2) + 'px';
+  q1no.style.opacity = Math.max(0.07, 1 - q1tries * 0.07);
+  q1no.style.pointerEvents = q1tries >= 14 ? 'none' : 'auto';
+  if (q1tries - 1 < taunts1.length) q1no.textContent = taunts1[q1tries - 1];
+}
+q1no.addEventListener('mouseover', moveQ1No);
+q1no.addEventListener('touchstart', e => { e.preventDefault(); moveQ1No(); });
 
-document.getElementById('yes').onclick = () => {
-  document.getElementById('page1').style.display = 'none';
-  document.getElementById('page2').style.display = 'block';
-  startPetals();
+// Q2 Yes button runs away
+const q2yes = document.getElementById('q2yes');
+const q2wrap = document.getElementById('q2wrap');
+let q2tries = 0;
+const taunts2 = ['Yes?? 🙈','Nope! 🌸','Run!! 💨','Too slow 🏃','Nice try 💅','Bye!! 👋','...💕'];
+function moveQ2Yes() {
+  q2tries++;
+  const wrap = q2wrap.getBoundingClientRect();
+  const btnW = q2yes.offsetWidth || 100;
+  const btnH = q2yes.offsetHeight || 44;
+  const rx = Math.random() * Math.max(0, wrap.width - btnW);
+  const ry = Math.max(0, Math.random() * Math.max(0, wrap.height - btnH - 66));
+  q2yes.style.position = 'absolute';
+  q2yes.style.width = 'auto';
+  q2yes.style.left = rx + 'px';
+  q2yes.style.top = ry + 'px';
+  const fs = Math.max(6, 16 - q2tries * 0.85);
+  const pd = Math.max(2, 13 - q2tries * 0.9);
+  q2yes.style.fontSize = fs + 'px';
+  q2yes.style.padding = pd + 'px ' + (pd*2) + 'px';
+  q2yes.style.opacity = Math.max(0.07, 1 - q2tries * 0.07);
+  q2yes.style.pointerEvents = q2tries >= 14 ? 'none' : 'auto';
+  if (q2tries - 1 < taunts2.length) q2yes.textContent = taunts2[q2tries - 1];
+}
+q2yes.addEventListener('mouseover', moveQ2Yes);
+q2yes.addEventListener('touchstart', e => { e.preventDefault(); moveQ2Yes(); });
+
+// Q3 flip buttons
+let flippedA = false, flippedB = false;
+function flipBtn(btn) {
+  if (btn === 'A') {
+    if (!flippedA) {
+      flippedA = true;
+      const el = document.getElementById('flipA');
+      el.textContent = 'Yes 💖';
+      el.classList.add('flipped');
+    } else {
+      checkBothFlipped();
+    }
+  } else {
+    if (!flippedB) {
+      flippedB = true;
+      const el = document.getElementById('flipB');
+      el.textContent = 'Yes 💖';
+      el.classList.add('flipped');
+    } else {
+      checkBothFlipped();
+    }
+  }
+}
+function checkBothFlipped() {
+  showPage('final');
   burstSparkles();
-};
+  startPetals();
+}
 
 function startPetals() {
   const icons = ['🌸','💖','🌷','✨','💕','🌼','💮','🩷'];
@@ -156,31 +260,29 @@ function startPetals() {
     p.textContent = icons[Math.floor(Math.random() * icons.length)];
     p.style.left = Math.random() * 100 + 'vw';
     p.style.top = '-30px';
-    p.style.fontSize = (13 + Math.random() * 16) + 'px';
+    p.style.fontSize = (12 + Math.random() * 14) + 'px';
     p.style.animationDuration = (3 + Math.random() * 5) + 's';
-    p.style.animationDelay = (Math.random() * .5) + 's';
     document.body.appendChild(p);
     setTimeout(() => p.remove(), 9000);
-    count++;
-    if (count > 200) clearInterval(iv);
-  }, 120);
+    if (++count > 120) clearInterval(iv);
+  }, 130);
 }
 
 function burstSparkles() {
-  const colors = ['#ff4f81','#ffb3cc','#ff87b2','#ffd1e8','#fff0f5','#ff6b9d','#ffcce0'];
-  for (let i = 0; i < 50; i++) {
+  const colors = ['#ff4f81','#ffb3cc','#ff87b2','#ffd1e8','#ff6b9d'];
+  for (let i = 0; i < 40; i++) {
     setTimeout(() => {
       const s = document.createElement('div');
       s.className = 'sparkle';
       s.style.background = colors[Math.floor(Math.random() * colors.length)];
-      s.style.left = (20 + Math.random() * 60) + 'vw';
-      s.style.top = (20 + Math.random() * 60) + 'vh';
-      s.style.animationDuration = (.4 + Math.random() * .8) + 's';
-      const size = (5 + Math.random() * 10) + 'px';
-      s.style.width = s.style.height = size;
+      s.style.left = (15 + Math.random() * 70) + 'vw';
+      s.style.top = (15 + Math.random() * 70) + 'vh';
+      s.style.animationDuration = (.4 + Math.random() * .7) + 's';
+      const sz = (5 + Math.random() * 9) + 'px';
+      s.style.width = s.style.height = sz;
       document.body.appendChild(s);
-      setTimeout(() => s.remove(), 1500);
-    }, i * 30);
+      setTimeout(() => s.remove(), 1400);
+    }, i * 28);
   }
 }
 </script>
